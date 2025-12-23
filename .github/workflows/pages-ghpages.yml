@@ -1,0 +1,46 @@
+name: Deploy docs to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare docs directory
+        run: |
+          # Ensure docs/ contains what we want to publish.
+          # Adjust the copy source if your site files are somewhere else.
+          rm -rf docs
+          mkdir -p docs
+          cp -a project-Amazon-clone/. docs/ || true
+
+          # Create a simple index redirect if amazon.html is the entry
+          if [ ! -f docs/index.html ] && [ -f docs/amazon.html ]; then
+            cat > docs/index.html <<'HTML'
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; URL=amazon.html">
+  <title>Amazon Clone</title>
+</head>
+<body>
+  If you are not redirected automatically, <a href="amazon.html">open the site</a>.
+</body>
+</html>
+HTML
+          fi
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_branch: gh-pages
+          publish_dir: ./docs
+          # use built-in token; no PAT required
+          github_token: ${{ secrets.GITHUB_TOKEN }}
