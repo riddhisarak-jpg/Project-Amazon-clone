@@ -1,0 +1,135 @@
+*{
+    font-family:'Times New Roman', Times, serif
+}
+body{
+    background-color: rgb(240, 240, 6);
+}
+h1{
+    color:red;
+    text-transform: capitalize;  
+}
+.heading{
+color:red;
+text-align: center;
+line-height:10px;
+}
+#outer{
+    color: rgb(30, 75, 210);
+    font-size: 25px;
+    height:100px;
+    width:100px;
+    text-align: center;
+    background-color: yellowgreen;
+    border-style: solid;
+    border-color: brown;
+    border-width:20px;
+    border-radius: 25%;
+}
+#inner{
+    color: rgb(185, 105, 44);
+    font-size: 10px;
+    text-decoration: black wavy underline;
+    font-weight: bold;
+    text-align: center;
+}
+.amazonheader{
+    height:40px;
+   background-color:black;
+   margin: auto;
+   border:10px solid white;
+   font-size: large;
+}
+.logo{
+    color:orange;
+    font-weight: bold;
+    font-size:large;
+    margin-right:200px;
+    width:150px;
+    height:30px;
+    text-align:left;
+}
+.cart{
+    color: white;
+    font-size:small;
+    width:150px;
+    height:30px;
+     margin-right:200px; /* using for spacing */
+} 
+
+button{
+    background-color: rgba(255, 165, 0,1);
+    color: rgb(255, 255, 255,1);
+    text-align: center; 
+}
+h2{
+   
+    color: rgb(214, 9, 43);
+}
+p{
+   
+    color: rgb(19, 19, 213);
+}
+footer{
+    background-color: black;
+    height: 50px;
+    width: auto;
+    color: white;
+    text-align: center;
+    font-size: large;
+    padding-top: 5px;
+}
+.product{
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    background-color:rgb(255, 230, 234);
+}
+.newarrivals{
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+   display: inline-block;
+  background-color: rgb(231, 201, 145);
+}
+.specialoffers{
+    border-top: 2px solid black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+   display: inline-block;
+   background-color: rgb(179, 240, 179);
+display: flex;
+    flex-direction: column;
+    justify-content:top right;
+   align-items: center; 
+  
+}
+#body{
+   display: inline-block;
+    width: 400px;
+    height: 400px;
+
+}
+@keyframes special {
+    from {background-color:pink;
+        transform: rotateZ(0deg);
+        font-size:normal;
+    }
+    to {background-color: yellow;
+        transform: rotateZ(360deg);
+        font-size:larger;
+    }
+}
+    .specialoffers:hover{
+       animation: special 2s ease-in-out 0.5s infinite;
+    }
