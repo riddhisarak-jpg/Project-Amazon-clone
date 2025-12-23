@@ -14,13 +14,9 @@ jobs:
 
       - name: Prepare docs directory
         run: |
-          # Ensure docs/ contains what we want to publish.
-          # Adjust the copy source if your site files are somewhere else.
           rm -rf docs
           mkdir -p docs
           cp -a project-Amazon-clone/. docs/ || true
-
-          # Create a simple index redirect if amazon.html is the entry
           if [ ! -f docs/index.html ] && [ -f docs/amazon.html ]; then
             cat > docs/index.html <<'HTML'
 <!doctype html>
@@ -42,5 +38,4 @@ HTML
         with:
           publish_branch: gh-pages
           publish_dir: ./docs
-          # use built-in token; no PAT required
           github_token: ${{ secrets.GITHUB_TOKEN }}
